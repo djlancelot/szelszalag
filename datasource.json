@@ -1,11 +1,10 @@
-[ "balatonlelle" : 
-  {
+[  {
       "order" : 0, 
       "id" : "balatonlelle",
       "name":"Balatonlelle",
       "side":"D"
   },
-  "balatonkenese" : {
+  {
       "order" : 1,
       "id": "balatonkenese",
       "name": "Balatonkenese",

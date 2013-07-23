@@ -5,6 +5,12 @@ var cheerio = require('cheerio');
 
 var places = [];
 
+var datasource = "datasource.json";
+
+var loadSource = function(){
+    return JSON.parse(fs.readFileSync(datasource));
+}
+
 var buildFn = function(id, name,order, places){
     var parseIdokep = function(result){
 	if (result instanceof Error) {
@@ -48,9 +54,12 @@ parsePage = function(result){
 }
 
 
-var name = "Balatonlelle";
-var id = 'balatonlelle';
-var order = 0;
-rest.get('http://www.idokep.hu/automata/'+id).on('complete',
-						   buildFn(id,name,order,places));
+var data = loadSource();
+data.forEach(function(elem){
+rest.get('http://www.idokep.hu/automata/'+elem.id).on('complete',
+						   buildFn(elem.id,
+							   elem.name,
+							   elem.order,
+							   places));
+});
 console.log(places.length);
