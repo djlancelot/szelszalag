@@ -1,7 +1,11 @@
+#!/usr/bin/env node
 var util = require('util');
 var rest = require('restler');
 var fs = require('fs');
 var cheerio = require('cheerio');
+var join = require('join');
+
+var fns = join.create();
 
 var places = [];
 
@@ -11,7 +15,8 @@ var loadSource = function(){
     return JSON.parse(fs.readFileSync(datasource));
 }
 
-var buildFn = function(id, name,order, places){
+var buildFn = function(id, name,order, places,task){
+    var callBack = fns.add();
     var parseIdokep = function(result){
 	if (result instanceof Error) {
 	    console.log('Error: ' + result.message);
@@ -21,8 +26,8 @@ var buildFn = function(id, name,order, places){
 	    // Parse each element
 	    lastcell = $('.beszamolo0').last();
 	    elem = lastcell.text().split('\n');
-	    wa = elem[3];
-	    ws = elem[4];
+	    wa = elem[3].trim();
+	    ws = elem[4].trim();
 	    var data = { order: order, 
 			 id: id, 
 			 name: name,
@@ -32,34 +37,25 @@ var buildFn = function(id, name,order, places){
 	    places.push(data);
 	    console.log(name+"\t"+ws+"\t"+wa+"\n");
 	}
+	//task.removeListener('complete',parseIdokep);
+	callBack();
     }
     return parseIdokep;
 }
 
 
-
-parsePage = function(result){
-    if (result instanceof Error) {
-	console.log('Error: ' + result.message);
-    }else{
-	$ = cheerio.load(result);
-	// 
-	// Parse each element
-	lastcell = $('.beszamolo0').last();
-	elem = lastcell.text().split('\n');
-	console.log(elem[3]);
-	console.log(elem[4]);	
-    }
-
-}
-
-
 var data = loadSource();
 data.forEach(function(elem){
-rest.get('http://www.idokep.hu/automata/'+elem.id).on('complete',
+var task = rest.get('http://www.idokep.hu/automata/'+elem.id);
+task.on('complete',
 						   buildFn(elem.id,
 							   elem.name,
 							   elem.order,
-							   places));
+							   places,task));
 });
-console.log(places.length);
+
+writedata = function(){
+    console.log(places);    
+}
+
+fns.when(writedata);
