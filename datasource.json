@@ -81,6 +81,13 @@
   },
   {
       "order" : 13,
+      "id": "balatonfenyves",
+      "name": "Balatonfenyves",
+      "side": "D"
+  },
+
+  {
+      "order" : 14,
       "id": "keszthely",
       "name": "Keszthely",
       "side": "E"
