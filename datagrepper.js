@@ -13,8 +13,6 @@ var loadSource = function(){
 }
 
 
-var data = loadSource();
-
 var parseIdokep = function(result, order,id,name,palces){
     if (result instanceof Error) {
 	console.log('Error: ' + result.message);
@@ -38,10 +36,23 @@ var parseIdokep = function(result, order,id,name,palces){
 }
 
 
+getdata = function(){
+var data = loadSource();
+
 data.forEach(function(elem){
     var req = httpsync.get({url: "http://www.idokep.hu/automata/"+elem.id});
     var res = req.end();
     parseIdokep(res.data,elem.order,elem.id,elem.name,places);
 });
 
+return places;
+}
 
+
+exports.data = getdata;
+
+if(require.main == module){
+    getdata();
+}else{
+
+}
