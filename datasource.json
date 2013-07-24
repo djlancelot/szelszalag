@@ -1,13 +1,28 @@
-[  {
+[
+  {
+      "order" : 0, 
+      "id" : "Globusz",
+      "Name":"Balatonfured",
+      "side":"E"
+  },
+  {
+      "order" : 1, 
+      "id" : "bgerry009",
+      "name":"Alsoors",
+      "side":"E"
+  },
+  {
+      "order" : 2,
+      "id": "balatonkenese",
+      "name": "Balatonkenese",
+      "side": "E"
+  },
+
+  {
       "order" : 0, 
       "id" : "balatonlelle",
       "name":"Balatonlelle",
       "side":"D"
   },
-  {
-      "order" : 1,
-      "id": "balatonkenese",
-      "name": "Balatonkenese",
-      "side": "D"
-  }
+
 ]
