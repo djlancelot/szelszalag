@@ -2,7 +2,7 @@
   {
       "order" : 0, 
       "id" : "Globusz",
-      "Name":"Balatonfured",
+      "name":"Balatonfured",
       "side":"E"
   },
   {
@@ -17,12 +17,75 @@
       "name": "Balatonkenese",
       "side": "E"
   },
+  {
+      "order" : 3,
+      "id": "balatonfruitkft",
+      "name": "Balatonvilagos",
+      "side": "D"
+  },
 
   {
-      "order" : 0, 
-      "id" : "balatonlelle",
-      "name":"Balatonlelle",
-      "side":"D"
+      "order" : 4,
+      "id": "siofokviztorony",
+      "name": "Siofok",
+      "side": "D"
   },
+  {
+      "order" : 5,
+      "id": "SZANCSO",
+      "name": "Zamardi",
+      "side": "D"
+  },
+  {
+      "order" : 6,
+      "id": "limnologia",
+      "name": "Tihany",
+      "side": "E"
+  },
+  {
+      "order" : 7,
+      "id": "onkormanyzat",
+      "name": "Balatonfoldvar",
+      "side": "D"
+  },
+  {
+      "order" : 8,
+      "id": "bir_balatonszemes",
+      "name": "Balatonszemes",
+      "side": "D"
+  },
+  {
+      "order" : 9,
+      "id": "balatonlelle",
+      "name": "Balatonlelle",
+      "side": "D"
+  },
+
+  {
+      "order" : 10, 
+      "id" : "mathiasz_iskola",
+      "name":"Balatonboglar",
+      "Side":"D"
+  },
+  {
+      "order" : 11,
+      "id": "sipos_hegy",
+      "name": "Fonyod",
+      "side": "D"
+  },
+  {
+      "order" : 12,
+      "id": "bajcos",
+      "name": "Vonyarcvashegy",
+      "side": "E"
+  },
+  {
+      "order" : 13,
+      "id": "keszthely",
+      "name": "Keszthely",
+      "side": "E"
+  }
+
+
 
 ]
