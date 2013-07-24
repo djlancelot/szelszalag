@@ -51,7 +51,7 @@ return places;
 exports.getData = getdata;
 
 if(require.main == module){
-    getdata();
+    console.log(getdata());
 }else{
 
 }
