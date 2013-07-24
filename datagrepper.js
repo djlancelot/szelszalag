@@ -4,8 +4,6 @@ var httpsync = require('httpsync');
 var fs = require('fs');
 var cheerio = require('cheerio');
 
-var places = [];
-
 var datasource = "datasource.json";
 
 var loadSource = function(){
@@ -13,7 +11,7 @@ var loadSource = function(){
 }
 
 
-var parseIdokep = function(result, order,id,name,palces){
+var parseIdokep = function(result, order,id,name,places){
     if (result instanceof Error) {
 	console.log('Error: ' + result.message);
     }else{
@@ -31,12 +29,13 @@ var parseIdokep = function(result, order,id,name,palces){
 		 windDir: wa
 	};
 	places.push(data);
-	console.log(data.name+"\t"+ws+"\t"+wa+"\n");
+	// console.log(data.name+"\t"+ws+"\t"+wa+"\n");
     }
 }
 
 
 getdata = function(){
+var places = [];
 var data = loadSource();
 
 data.forEach(function(elem){
@@ -49,7 +48,7 @@ return places;
 }
 
 
-exports.data = getdata;
+exports.getData = getdata;
 
 if(require.main == module){
     getdata();
