@@ -38,5 +38,5 @@ var result = wind.getData();
 Each element will have a .name, a .windDir and a .windSpeed attribute with the trimmed text from the idokep.hu 
 website. 
 
-The given id in the json file is the name of the weather station, the <id> in  http://www.idokep.hu/automata/<id> 
+The given id in the json file is the name of the weather station, the ID in  http://www.idokep.hu/automata/ID 
 ( balatonkenese in http://www.idokep.hu/automata/balatonkenese ). Name can be any human readable name.
